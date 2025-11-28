@@ -1,0 +1,102 @@
+.word-display {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background: linear-gradient(135deg,
+            hsla(280, 85%, 60%, 0.1) 0%,
+            hsla(320, 80%, 60%, 0.1) 100%);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--glass-border);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.word-display::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle,
+            hsla(280, 85%, 60%, 0.1) 0%,
+            transparent 70%);
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hebrew-word {
+    font-family: var(--font-hebrew);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(200, 100, 255, 0.3);
+    direction: rtl;
+    position: relative;
+    z-index: 1;
+}
+
+.english-translation {
+    font-family: var(--font-english);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 1;
+}
+
+.word-category {
+    font-family: var(--font-english);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: hsla(280, 85%, 60%, 0.2);
+    border-radius: var(--radius-sm);
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .word-display {
+        min-height: 180px;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .hebrew-word {
+        font-size: 3rem;
+    }
+
+    .english-translation {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .word-display {
+        min-height: 160px;
+        padding: var(--spacing-md);
+    }
+
+    .hebrew-word {
+        font-size: 2.5rem;
+    }
+
+    .english-translation {
+        font-size: 1.25rem;
+    }
+
+    .word-category {
+        font-size: 0.8rem;
+    }
+}
