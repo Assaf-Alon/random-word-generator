@@ -15,8 +15,17 @@ class WordService {
         try {
             // Use Vite's base URL to ensure correct path in production
             const csvPath = `${import.meta.env.BASE_URL}hebrew-words.csv`;
+            console.log('Attempting to load CSV from:', csvPath);
+
             const response = await fetch(csvPath);
+
+            if (!response.ok) {
+                console.error('Failed to fetch CSV:', response.status, response.statusText);
+                throw new Error(`Failed to fetch CSV: ${response.status} ${response.statusText}`);
+            }
+
             const csvText = await response.text();
+            console.log('CSV loaded successfully, length:', csvText.length);
 
             const result = Papa.parse(csvText, {
                 header: true,
@@ -24,11 +33,17 @@ class WordService {
             });
 
             this.words = result.data.filter(word => word.hebrew && word.english);
+            console.log('Parsed words count:', this.words.length);
+
+            if (this.words.length === 0) {
+                throw new Error('No valid words found in CSV file');
+            }
+
             this.loaded = true;
             return this.words;
         } catch (error) {
             console.error('Error loading words:', error);
-            throw new Error('Failed to load Hebrew words');
+            throw new Error(`Failed to load Hebrew words: ${error.message}`);
         }
     }
 

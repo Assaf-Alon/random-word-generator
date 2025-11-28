@@ -50,7 +50,7 @@ A beautiful, mobile-friendly React web application for playing the Hebrew song w
 
 This app is automatically deployed to GitHub Pages via GitHub Actions.
 
-### Live URL
+### Live URLNo words loaded
 Once deployed, your app will be available at:
 `https://[your-username].github.io/random-word-generator/`
 
