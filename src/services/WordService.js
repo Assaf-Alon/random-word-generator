@@ -13,7 +13,9 @@ class WordService {
         }
 
         try {
-            const response = await fetch('/hebrew-words.csv');
+            // Use Vite's base URL to ensure correct path in production
+            const csvPath = `${import.meta.env.BASE_URL}hebrew-words.csv`;
+            const response = await fetch(csvPath);
             const csvText = await response.text();
 
             const result = Papa.parse(csvText, {
