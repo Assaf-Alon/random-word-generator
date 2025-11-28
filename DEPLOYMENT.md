@@ -23,8 +23,8 @@ Replace `YOUR-USERNAME` with your actual GitHub username:
 
 ```bash
 git remote add origin https://github.com/YOUR-USERNAME/random-word-generator.git
-git branch -M main
-git push -u origin main
+git branch -M master
+git push -u origin master
 ```
 
 ## Step 4: Enable GitHub Pages
@@ -51,7 +51,7 @@ https://YOUR-USERNAME.github.io/random-word-generator/
 
 ## Automatic Updates
 
-Every time you push changes to the `main` branch, GitHub Actions will automatically rebuild and redeploy your app!
+Every time you push changes to the `master` branch, GitHub Actions will automatically rebuild and redeploy your app!
 
 ## Troubleshooting
 

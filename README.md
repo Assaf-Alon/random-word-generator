@@ -58,7 +58,7 @@ Once deployed, your app will be available at:
 1. Push this code to a GitHub repository
 2. Go to repository Settings → Pages
 3. Under "Build and deployment", select "GitHub Actions" as the source
-4. The workflow will automatically deploy on every push to `main`
+4. The workflow will automatically deploy on every push to `master`
 
 ### Local Development
 
