@@ -1,5 +1,5 @@
 import Papa from 'papaparse';
-import csvData from '/hebrew-words.csv?raw';
+import csvData from '../assets/hebrew-words.csv?raw';
 
 class WordService {
     constructor() {

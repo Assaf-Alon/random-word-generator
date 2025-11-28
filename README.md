@@ -64,7 +64,7 @@ Once deployed, your app will be available at:
 
 ## Customizing the Word List
 
-The Hebrew words are stored in `public/hebrew-words.csv`. You can easily modify this file to:
+The Hebrew words are stored in `src/assets/hebrew-words.csv`. You can easily modify this file to:
 
 - Add new words
 - Edit translations
