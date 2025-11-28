@@ -1,4 +1,5 @@
 import Papa from 'papaparse';
+import csvData from '/hebrew-words.csv?raw';
 
 class WordService {
     constructor() {
@@ -13,21 +14,9 @@ class WordService {
         }
 
         try {
-            // Use Vite's base URL to ensure correct path in production
-            const csvPath = `${import.meta.env.BASE_URL}hebrew-words.csv`;
-            console.log('Attempting to load CSV from:', csvPath);
+            console.log('Loading CSV data...');
 
-            const response = await fetch(csvPath);
-
-            if (!response.ok) {
-                console.error('Failed to fetch CSV:', response.status, response.statusText);
-                throw new Error(`Failed to fetch CSV: ${response.status} ${response.statusText}`);
-            }
-
-            const csvText = await response.text();
-            console.log('CSV loaded successfully, length:', csvText.length);
-
-            const result = Papa.parse(csvText, {
+            const result = Papa.parse(csvData, {
                 header: true,
                 skipEmptyLines: true,
             });
